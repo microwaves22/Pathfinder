@@ -396,6 +396,10 @@
     position: relative;
   }
 
+  .static {
+    position: static;
+  }
+
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
@@ -598,6 +602,18 @@
 
   .grid {
     display: grid;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .table {
+    display: table;
   }
 
   .h-3 {
@@ -1005,8 +1021,20 @@
     }
   }
 
+  .lowercase {
+    text-transform: lowercase;
+  }
+
   .uppercase {
     text-transform: uppercase;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .underline {
+    text-decoration-line: underline;
   }
 
   .antialiased {
