@@ -64,43 +64,97 @@ function CameraController({ currentZoom }: { currentZoom: number }) {
   return null;
 }
 
-// Main Hero3D component
 export default function Hero3D() {
   const [currentZoom, setCurrentZoom] = React.useState(0);
+  const [isStarted, setIsStarted] = React.useState(false);
 
-  // Advance to next hotspot on click
+  // Advance to next hotspot on click - only if simulation has started
   const handleClick = () => {
-    if (currentZoom < zoomPoints.length - 1) {
+    if (isStarted && currentZoom < zoomPoints.length - 1) {
       setCurrentZoom((prev) => prev + 1);
     }
   };
 
+  // Logic to trigger the simulation start
+  const handleStartSimulation = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevents handleClick from firing immediately
+    setIsStarted(true);
+    setCurrentZoom(0); // Ensure we stay/start at the first zoom point
+  };
+
   return (
-    <div className="relative h-[100svh] w-full" onClick={handleClick}>
-      <Canvas camera={{ position: zoomPoints[0].position, fov: 35 }} dpr={[1, 2]}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[4, 6, 4]} intensity={2.2} />
+    <div 
+      className="relative h-[100svh] w-full overflow-hidden bg-[#ffd60a]" 
+      onClick={handleClick}
+    >
+      {/* 3D CANVAS */}
+      <Canvas 
+        className={`transition-all duration-[2000ms] ${!isStarted ? 'blur-[8px] brightness-[0.7]' : 'blur-0'}`}
+        camera={{ position: zoomPoints[0].position, fov: 35 }} 
+        dpr={[1, 2]}
+      >
+        <color attach="background" args={['#ffd60a']} />
+        <ambientLight intensity={0.7} />
+        <directionalLight position={[4, 6, 4]} intensity={2.5} />
         <Environment preset="studio" />
 
-        <React.Suspense fallback={<Html center>Loading camera…</Html>}>
+        <React.Suspense fallback={<Html center className="text-black font-bold">Initializing...</Html>}>
           <CameraGLB />
-
-          {/* Camera movement */}
+          {/* Movement only triggers via spring once started */}
           <CameraController currentZoom={currentZoom} />
         </React.Suspense>
       </Canvas>
 
-      {/* Overlay GearQuestion at hotspot 1 */}
-      {currentZoom === 1 && (
+      {/* LANDING PAGE OVERLAY */}
+     {/* LANDING PAGE OVERLAY */}
+      <div className={`pointer-events-none absolute inset-0 transition-all duration-1000 z-10 ${isStarted ? 'opacity-0 scale-[1.5]' : 'opacity-100 scale-100'}`}>
+        <div className="absolute left-1/2 top-[42%] w-full -translate-x-1/2 -translate-y-1/2 text-center px-4">
+          
+          {/* Upper Small Text - Changed to white/60 */}
+          <div className="text-[10px] tracking-[0.5em] uppercase text-white/60 mb-4 font-bold drop-shadow-sm">
+            Future Career Exploration
+          </div>
+
+          {/* Main Title - Changed to text-white with a shadow */}
+          <h1 className="text-7xl font-black tracking-tighter text-white sm:text-9xl drop-shadow-md">
+            PATHFINDER
+          </h1>
+
+          {/* Lower Description - Changed to text-white/80 */}
+          <p className="mx-auto mt-6 max-w-2xl text-lg font-medium leading-relaxed text-white/80 sm:text-xl drop-shadow-sm">
+            Snap into focus. Choose your lens and preview your future career path today.
+          </p>
+
+        </div>
+      </div>
+
+      {/* START BUTTON */}
+      {!isStarted && (
+        <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20">
+          <button 
+            onClick={handleStartSimulation}
+            className="group relative flex items-center gap-3 overflow-hidden rounded-full bg-black px-10 py-5 font-bold text-white transition-all hover:scale-105 active:scale-95 shadow-2xl"
+          >
+            <span className="relative z-10 tracking-widest uppercase">Start</span>
+            <div className="h-3 w-3 rounded-full bg-red-600 animate-pulse" />
+          </button>
+        </div>
+      )}
+
+      {/* Simulation UI: Overlay GearQuestion at hotspot 1 */}
+      {isStarted && currentZoom === 1 && (
         <GearQuestion onComplete={() => setCurrentZoom((prev) => prev + 1)} />
       )}
 
-      {/* Optional instructions */}
-      {currentZoom < 1 && (
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 text-xs">
-          Click anywhere to advance camera to the next point
+      {/* Navigation Instructions */}
+      {isStarted && currentZoom < zoomPoints.length - 1 && (
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-black/40 text-xs font-bold tracking-widest uppercase animate-bounce">
+          Click anywhere to advance
         </div>
       )}
+
+      {/* Cinematic Vignette */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.1)_100%)]" />
     </div>
   );
 }
