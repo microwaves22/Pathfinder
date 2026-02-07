@@ -153,3 +153,12 @@ Import trace:
 [00:20:34.734] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. mesh
 [00:34:58.234] Server  LOG     ✓ Compiled in 685ms
 [00:35:00.504] Browser LOG     THREE.WebGLRenderer: Context Lost.
+[00:36:10.810] Server  ERROR   ⨯ ReferenceError: React is not defined
+[00:36:11.508] Browser ERROR   uncaughtError: ReferenceError: React is not defined
+[00:36:24.931] Server  LOG     ✓ Compiled in 248ms
+[00:36:25.251] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:33.732] Browser ERROR   <%s /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements. cylinderGeometry
+[00:36:33.733] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. cylinderGeometry
+[00:36:33.733] Browser ERROR   <%s /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements. meshStandardMaterial
+[00:36:33.733] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. meshStandardMaterial
+[00:36:33.733] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. mesh

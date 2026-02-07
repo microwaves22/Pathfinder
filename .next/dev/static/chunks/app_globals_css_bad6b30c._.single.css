@@ -344,6 +344,10 @@
     top: 46%;
   }
 
+  .bottom-10 {
+    bottom: calc(var(--spacing) * 10);
+  }
+
   .left-1\/2 {
     left: 50%;
   }
@@ -564,6 +568,16 @@
   @supports (color: color-mix(in lab, red, red)) {
     .text-white\/55 {
       color: color-mix(in oklab, var(--color-white) 55%, transparent);
+    }
+  }
+
+  .text-white\/60 {
+    color: #fff9;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/60 {
+      color: color-mix(in oklab, var(--color-white) 60%, transparent);
     }
   }
 
