@@ -17,7 +17,7 @@ function CameraGLB() {
   );
 }
 
-const zoomPoints = [
+const zoomPoints: Array<{ position: [number, number, number]; target: [number, number, number] }> = [
   { position: [0.127, 0.175, 4.132], target: [0.096, 0.132, 3.133] },
   { position: [-1.901, 1.305, 1.488], target: [-1.209, 0.830, 0.946] },
   { position: [-0.126, -0.285, 2.727], target: [-0.080, -0.181, 1.734] },
@@ -125,7 +125,10 @@ export default function Hero3D() {
       )}
       {isStarted && currentZoom === 3 && (
         <div className="absolute inset-0 z-40 pointer-events-auto flex items-center justify-center">
-          <CareerSphere onSelect={() => setCurrentZoom((prev) => prev + 1)} />
+          <CareerSphere 
+            onSelect={() => setCurrentZoom((prev) => prev + 1)}
+            onClose={() => setCurrentZoom((prev) => prev - 1)}
+          />
         </div>
       )}
 
