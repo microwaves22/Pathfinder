@@ -293,3 +293,4 @@ https://nextjs.org/docs/messages/module-not-found
 [00:10:14.030] Browser ERROR   <%s /> is using incorrect casing. Use PascalCase for React components, or lowercase for HTML elements. meshStandardMaterial
 [00:10:14.030] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. meshStandardMaterial
 [00:10:14.030] Browser ERROR   The tag <%s> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter. mesh
+[00:51:36.498] Browser LOG     THREE.WebGLRenderer: Context Lost.
