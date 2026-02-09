@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Pathfinder**
+Pathfinder is an interactive, camera-themed web application designed to help users discover their dream careers through immersive, narrative-driven simulations. Instead of traditional, dry career quizzes, Pathfinder drops you into a "day-in-the-life" experience to see if a career path truly resonates with your professional mindset.
 
-## Getting Started
+**Inspiration**
+Our team realized that the modern job market often feels disconnected from the actual day-to-day reality of work. We built Pathfinder to bridge that gap, ensuring students and job seekers aren't "blind-sided" on their first day by providing a narrative simulation that feels emotionally grounded.
 
-First, run the development server:
+**Features**
+- 3D Interactive Entry: A cinematic environment powered by Three.js where users interact with a virtual camera to choose their path.
+- Narrative Simulations: Step into a "day-in-the-life" story based on your personal interests and professional mindset.
+- State-Driven Flow: Seamless transitions between cinematic 3D scenes and interactive decision-making overlays.
+- Empathetic UX: Focused on "testing identities" rather than just clicking options, with a specific focus on mental health and tone.
 
-```bash
+**Built With**
+- Frontend: Next.js (App Router), React
+- 3D Graphics: Three.js, React Three Fiber, Drei
+- Styling: Tailwind CSS
+- Backend/Deployment: Node.js, Aedify
+- Language: TypeScript (TSX)
+
+**Getting Started**
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+Prerequisites
+Node.js (v18.x or higher recommended)
+npm 
+
+Installation
+Clone the repository:
+
+Bash
+git clone https://github.com/your-username/pathfinder.git
+cd pathfinder
+
+Install dependencies:
+
+Bash
+npm install
+
+Run the development server:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the application: Navigate to http://localhost:3000 in your browser to see the 3D environment in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Challenges We Overcame
+State Orchestration: Managing complex transitions between 3D camera stages and UI story stages without breaking immersion.
+Performance: Handling 3D asset loading in Next.js using strict client-side boundaries and Suspense to prevent hydration errors.
+Tone & Pacing: Designing scenarios that felt respectful and grounded rather than "game-like," particularly for mental health career paths.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+What's Next
+Expanded Career Library: Adding more diverse paths and deeper storylines.
+Advanced Quiz Logic: Refining the initial assessment to provide even more personalized results.
+Resource Integration: Connecting users directly to educational resources and next steps for their discovered paths.
 
-## Learn More
+The Team
+Created for UIC SparkHacks 2026 by:
+Judy Sabry
+Minahil Rahimullah
+Malika Syeda
+Michelle Ye
 
-To learn more about Next.js, take a look at the following resources:
+Links
+Live Demo: Pathfinder on Aedify
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Video Presentation: YouTube Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Devpost Project: Pathfinder Story
